@@ -6,53 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>All About Mars</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Bootstrap style -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- Javascript / Popper bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
-      <p>Beach. Rainforest. Volcano. Tree House. Sloths.</p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Latest Data!</a></p>
-    </div>
-
-
-    <!-- Loop through list -->
-    {% for moon in mars_input.hemispheres %}
-
-    <div class="col-lg-4">
-      <div class="card" style="width: 20rem;">
-            <img src={{moon.img_url}} class="card-img-top" alt="...">
-            <div class="card-body">
-            <h4 class="card-title">{{ moon.title }}</h4>
-            <h6 class="card-subtitle mb-2 text-muted">Is a top five favorite movie</h6>
-            <p class="card-text">Search <a href="https://www.imdb.com/">IMDB</a> for more info!</p>
-          </div>
+  
+  <div class="container-md">
+    <div class="card text-center">
+      <div class="card-header">
         </div>
+      <div class="card-body">
+        <h1 class="card-title">Mission to Mars</h1>
+        <p class="card-text">should you choose to accept it.....</p>
+        <a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Latest Data!</a>
+      </div>
+      <div class="card-footer text-muted">
+      </div>
+    </div>
+    
+   
+    <div>
+      <h5 class="text-center">If I Let You Know Where I'm Going, I Won't Be On Holiday</h5>
+    </div>
+    <hr>
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-lg-2 bg-white mx-auto">
+        
+        <!-- Loop through list -->
+        {% for moon in mars_input.hemispheres %}
+        <figure class="figure text-center">
+          <h6 ></h6>
+          <img src="{{moon.img_url}}" class="figure-img img-fluid rounded w-75" alt="temperature chart" >
+          <figcaption class="figure-caption">{{ moon.title }}</figcaption>
+        </figure>
+
+        {% endfor %}
     </div>
 
-    {% endfor %}
+    <div class="row justify-content-center"> 
+      <hr>
+      <div class="col-6">
+        <h5>This latest news will self destruct in 10 seconds:</h5>
+        <h6>News Title: </h6>
+        <p>{{mars_input.news_title}}</p>
+        <h6>News Snippet:  </h6>
+        <p>{{mars_input.news_p}}</p>
+      </div>
+      <div class="col mx-auto " >
+        <h5>What's done is done, when we say it's done</h5>
+        <div class="text-wrap">
+          {{mars_input.facts|safe}}
+        </div>
+      </div>  
+    </div>  
 
-    <!-- use disctionary with keys-->
-    <ul style="list-style: none;">
-      <li>{{ dict.player_1 }}</li>
-      <li>{{ dict.player_2 }}</li>
-    </ul>
-
-    <!-- Loop through the dictionary -->
-            
-    {% for dog in mars_input.hemispheres %}
-    <li style="color:blue">{{ dog }}</li>
-    {% endfor %}
-
-
-    <h2>The typical weather in Costa Rica is:</h2>
-    <h3>News Title: {{mars_input.news_title}}</h3>
-    <h3>News Snippet:  {{mars_input.news_p}}</h3>
-    {{mars_input.facts|safe}}
-    <img src={{mars_input.featured_img_url}}> 
-  </div>
+    <div class="row">
+      <hr>
+      <h5 class="text-center">I'm sure we can find something I have that you need</h5>
+      <img src={{mars_input.featured_img_url}}  class="w-75 mx-auto p3" alt="featured image of mars surface close up" > 
+      <h4></h4>
+      <hr>
+      <h5 class="text-center">Mission Accomplished!</h5>
+      <hr>
+    </div>
+  
   </div>
 </body>
 

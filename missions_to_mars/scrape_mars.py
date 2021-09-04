@@ -76,8 +76,8 @@ def scrape_info():
 
     # %%
     # scrape for the tables
-    tables = pd.read_html(url, header = None)
-    mars_facts = tables[1]
+    tables = pd.read_html(url)
+    mars_facts = tables[0]
 
     # %%
     # convert to html for use on webpage
