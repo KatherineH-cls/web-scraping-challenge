@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>All About Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p>Beach. Rainforest. Volcano. Tree House. Sloths.</p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Latest Data!</a></p>
+    </div>
+
+
+    <!-- Loop through list -->
+    {% for moon in mars_input.hemispheres %}
+
+    <div class="col-lg-4">
+      <div class="card" style="width: 20rem;">
+            <img src={{moon.img_url}} class="card-img-top" alt="...">
+            <div class="card-body">
+            <h4 class="card-title">{{ moon.title }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">Is a top five favorite movie</h6>
+            <p class="card-text">Search <a href="https://www.imdb.com/">IMDB</a> for more info!</p>
+          </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+    <!-- use disctionary with keys-->
+    <ul style="list-style: none;">
+      <li>{{ dict.player_1 }}</li>
+      <li>{{ dict.player_2 }}</li>
+    </ul>
+
+    <!-- Loop through the dictionary -->
+            
+    {% for dog in mars_input.hemispheres %}
+    <li style="color:blue">{{ dog }}</li>
+    {% endfor %}
+
+
+    <h2>The typical weather in Costa Rica is:</h2>
+    <h3>News Title: {{mars_input.news_title}}</h3>
+    <h3>News Snippet:  {{mars_input.news_p}}</h3>
+    {{mars_input.facts|safe}}
+    <img src={{mars_input.featured_img_url}}> 
+  </div>
+  </div>
+</body>
+
+</html>
