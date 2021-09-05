@@ -29,8 +29,8 @@ def scrape_info():
 
     # exception for the times that the webpage does not load properly
     except:
-        news_title ="NASA to Broadcast Mars 2020 Perseverance Launch, Prelaunch Activities"
-        news_p = "Starting July 27, news activities will cover everything from mission engineering and science to returning samples from Mars to, of course, the launch itself."
+        news_title ="Robotic Toolkit Added to NASA's Mars 2020 Rover"
+        news_p = "The bit carousel, which lies at the heart of the rover's Sample Caching System, is now aboard NASA's newest rover."
 
     # %%
     # close the driver browser
@@ -81,7 +81,7 @@ def scrape_info():
 
     # %%
     # convert to html for use on webpage
-    facts_table = mars_facts.to_html(index = False, header = False)
+    facts_table = mars_facts.to_html(index = False, header = False, classes="table table-success table-striped", bold_rows = True)
 
 
     # %%
